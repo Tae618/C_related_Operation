@@ -1,7 +1,23 @@
 
-//读取二进制文件, 放入C语言结构体, 快速方法  <br />
+//读取二进制文件, 放入C语言结构体, 快速方法
 
-Struct
+typedef struct HEADER_STRU{
+       int a;
+       int size;
+       char c;
+}HEADER;
+
+
+void test()
+{
+      char *file_name = "test";
+      FILE *inputfile = fopen(file_name);
+      HEADER h;
+      HEADER *p = &h;     // 定义结构体指针
+      fread(p, sizeof(HEADER), 1, inputfile);   //讲结构体大小的数据load到结构体指针对应的内存, 即完成
+      
+      fclose(inputfile);
+}
 
 
 
